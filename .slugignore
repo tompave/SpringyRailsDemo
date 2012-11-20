@@ -1,0 +1,21 @@
+# See:
+# https://devcenter.heroku.com/articles/slug-compiler
+# 
+# 
+# 
+
+# Ignore Rspec and tests
+spec
+test
+
+# Ignore Docs
+doc
+
+
+# Ignore the Git repository
+/.git
+.gitignore
+.gitkeep
+
+# Ignore the local environment vars for development
+.env
