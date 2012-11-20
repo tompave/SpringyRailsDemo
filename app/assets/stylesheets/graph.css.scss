@@ -1,3 +1,28 @@
 // Place all the styles related to the graph controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.graph_container {
+	position: relative;
+}
+
+
+a.random {
+	position: absolute;
+	left: 10px;
+	top: 40px;
+}
+
+a.reset {
+	position: absolute;
+	left: 10px;
+	top: 80px;
+}
+
+canvas#graph_box {
+	display: block;
+	margin: 20px auto;
+	border: 1px solid #08c;
+	background-color: #EEE;
+	border-radius: 12px;
+}
