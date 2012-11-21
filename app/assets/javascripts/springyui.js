@@ -245,16 +245,18 @@ jQuery.fn.springy = function(params) {
 			if (selected !== null && nearest.node !== null && selected.node.id === node.id) {
 				ctx.fillStyle = "#FFFFE0";
 			} else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
-				ctx.fillStyle = "#EEEEEE";
+				ctx.fillStyle = "#aaaaff";
 			} else {
-				ctx.fillStyle = "#FFFFFF";
+				ctx.fillStyle = "rgba(255, 255, 255, 0.0)";
 			}
 			ctx.fillRect(s.x - boxWidth/2, s.y - 10, boxWidth, 20);
+
+			var tp_color = typeof(node.data.color) !== 'undefined' ? node.data.color : '#000000';
 
 			ctx.textAlign = "left";
 			ctx.textBaseline = "top";
 			ctx.font = "16px Verdana, sans-serif";
-			ctx.fillStyle = "#000000";
+			ctx.fillStyle = tp_color; //"#000000";
 			ctx.font = "16px Verdana, sans-serif";
 			var text = typeof(node.data.label) !== 'undefined' ? node.data.label : node.id;
 			ctx.fillText(text, s.x - boxWidth/2 + 5, s.y - 8);

@@ -4,7 +4,7 @@
 	var graph = new Graph();
 
 	<% @names.each do |name| %>
-		var <%= name %> = graph.newNode({ label: '<%= name %>' });
+		var <%= name %> = graph.newNode({ label: '<%= name %>', color: '#ff0000' });
 	<% end %>
 
 
@@ -24,4 +24,4 @@
 	});
 </script>
 
-<canvas id="graph_box" width="800" height="700" />
+<canvas id="graph_box" width="900" height="800" />

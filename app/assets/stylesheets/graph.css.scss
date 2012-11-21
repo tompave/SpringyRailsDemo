@@ -2,15 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
 div.graph_container {
 	position: relative;
+	width: 1000px;
+	height: 800px;
+	margin: 0px auto;
 }
 
 
 a.random {
 	position: absolute;
-	left: 10px;
-	top: 40px;
+	left: 60px;
+	top: 15px;
 }
 
 canvas#graph_box {
@@ -19,4 +27,5 @@ canvas#graph_box {
 	border: 1px solid #08c;
 	background-color: #EEE;
 	border-radius: 12px;
+
 }
