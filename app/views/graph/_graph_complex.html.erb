@@ -10,7 +10,7 @@
 
 	<% @participations.each do |person, parties| %>
 		<% parties.each do |party| %>
-			graph.newEdge(<%= person %>, <%= party[:name] %>, {color: '<%= party[:confirmed] ? "#88ee33" : "#ee8833" %>'});
+			graph.newEdge(<%= person %>, <%= party[:name] %>, {color: '<%= party[:confirmed] ? "#88ee33" : "#ee5522" %>', weight: <%= party[:weight] %>});
 		<% end %>
 	<% end %>
 

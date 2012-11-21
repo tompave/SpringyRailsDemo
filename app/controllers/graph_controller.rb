@@ -9,9 +9,11 @@ class GraphController < ApplicationController
 			@participations = {}
 			Person.all.each do |person|
 				@participations[person.name] = person.party_participations.map do |participation|
-					{ name: participation.attended_party.organizer.name, confirmed: participation.confirmed }
+					{ name: participation.attended_party.organizer.name, confirmed: participation.confirmed, weight: 0.6 }
 				end
 			end
+			#compute_edges_of(@participations)
+
 			#puts @participations.inspect.colorize :blue
 		else
 			@type = "simple"
@@ -45,7 +47,7 @@ class GraphController < ApplicationController
 
 	# using a has_many :through association
 	# POST /random_complex - random_complex_path
-	def random_complex(n = 8, m = 2)
+	def random_complex(n = 7, m = 3)
 		Person.destroy_all
 		Party.destroy_all
 		PartyParticipation.destroy_all
@@ -74,6 +76,33 @@ class GraphController < ApplicationController
 
 		redirect_to action: "home", graph: "complex"
 	end
+
+
+	private
+
+		# data = {
+		# 	"person_1" => [
+		# 		{ :name => "organizer", :confirmed => true },
+		# 		{ :name => "organizer", :confirmed => true },
+		# 		#...
+		# 	],
+		# 	"person_2" => [
+		# 		{ :name => "organizer", :confirmed => true },
+		# 		{ :name => "organizer", :confirmed => true },
+		# 		#...
+		# 	],
+		# 	#...
+		# }
+
+		# def compute_edges_of(data)
+		# 	people = data.keys # all keys
+
+		# 	data.each_pair do |person, parties| # parties is an array
+		# 		parties.each do |party| 					#party is an hash
+		# 			# ....
+		# 		end
+		# 	end
+		# end
 	
 
 end
