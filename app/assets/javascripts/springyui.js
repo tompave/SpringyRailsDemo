@@ -245,7 +245,7 @@ jQuery.fn.springy = function(params) {
 			if (selected !== null && nearest.node !== null && selected.node.id === node.id) {
 				ctx.fillStyle = "#FFFFE0";
 			} else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
-				ctx.fillStyle = "#aaaaff";
+				ctx.fillStyle = "#44aaff";
 			} else {
 				ctx.fillStyle = "rgba(255, 255, 255, 0.0)";
 			}

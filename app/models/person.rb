@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: people
+#
+#  id                   :integer          not null, primary key
+#  name                 :string(255)
+#  parties_count        :integer
+#  participations_count :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
 class Person < ActiveRecord::Base
   attr_accessible :name
 
@@ -9,6 +21,21 @@ class Person < ActiveRecord::Base
   										 association_foreign_key: "friend_id",
   										 							join_table: "friendships",
   										 										uniq: true
+
+
+
+
+  has_many :own_parties, class_name: "Party",
+  											foreign_key: "organizer_id"
+
+
+	has_many :party_participations, foreign_key: "attendee_id"
+
+	has_many :attended_parties, through: :party_participations
+
+
+
+
 
  	def befriend(person)
  		unless self.friends.include?(person)

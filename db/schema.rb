@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120130724) do
+ActiveRecord::Schema.define(:version => 20121121100813) do
 
   create_table "friendships", :id => false, :force => true do |t|
     t.integer "self_id"
@@ -22,10 +22,29 @@ ActiveRecord::Schema.define(:version => 20121120130724) do
   add_index "friendships", ["self_id", "friend_id"], :name => "index_friendships_on_self_id_and_friend_id", :unique => true
   add_index "friendships", ["self_id"], :name => "index_friendships_on_self_id"
 
+  create_table "parties", :force => true do |t|
+    t.string   "theme"
+    t.string   "venue"
+    t.integer  "organizer_id"
+    t.integer  "participations_count"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "party_participations", :force => true do |t|
+    t.boolean  "confirmed",         :default => false
+    t.integer  "attendee_id"
+    t.integer  "attended_party_id"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
   create_table "people", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "parties_count"
+    t.integer  "participations_count"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   add_index "people", ["name"], :name => "index_people_on_name"

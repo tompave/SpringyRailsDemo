@@ -2,11 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin border_box {
+	border: 1px solid #08c;
+	border-radius: 12px;
+	background-color: #fdfdfd;
+}
+div.debug_box {
+	@include border_box;
+	width: 80%;
+	margin: 30px auto;
+	padding: 0px 20px;
+}
 
 body {
 	margin: 0px;
 	padding: 0px;
 }
+
 div.graph_container {
 	position: relative;
 	width: 1000px;
@@ -14,18 +26,28 @@ div.graph_container {
 	margin: 0px auto;
 }
 
+a {
+	font-family: helvetica, arial, sans-serif;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
 
-a.random {
+	&.random_simple {
 	position: absolute;
 	left: 60px;
 	top: 15px;
+	}
+	&.random_complex {
+		position: absolute;
+		left: 60px;
+		top: 35px;
+	}
 }
 
+
 canvas#graph_box {
+	@include border_box;
 	display: block;
 	margin: 20px auto;
-	border: 1px solid #08c;
-	background-color: #EEE;
-	border-radius: 12px;
-
 }

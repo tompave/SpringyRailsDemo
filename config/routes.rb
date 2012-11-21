@@ -3,7 +3,8 @@ SpringyTest::Application.routes.draw do
   root to: 'graph#home'
 
   match '/settings', to: 'graph#settings', via: :get
-  match '/random', to: 'graph#random', via: :post
+  match '/random_simple', to: 'graph#random_simple', via: :post
+  match '/random_complex', to: 'graph#random_complex', via: :post
 
 
   # The priority is based upon order of creation:

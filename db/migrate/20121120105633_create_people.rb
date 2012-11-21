@@ -3,6 +3,10 @@ class CreatePeople < ActiveRecord::Migration
     create_table :people do |t|
     	t.string :name
 
+
+    	t.integer :parties_count
+    	t.integer :participations_count
+
       t.timestamps
     end
     add_index :people, :name

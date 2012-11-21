@@ -1,0 +1,27 @@
+<script src="/assets/springy.js"></script>
+<script src="/assets/springyui.js"></script>
+<script>
+	var graph = new Graph();
+
+	<% @names.each do |name| %>
+		var <%= name %> = graph.newNode({ label: '<%= name %>', color: '#000000' });
+	<% end %>
+
+
+	<% @participations.each do |person, parties| %>
+		<% parties.each do |party| %>
+			graph.newEdge(<%= person %>, <%= party[:name] %>, {color: '<%= party[:confirmed] ? "#88ee33" : "#ee8833" %>'});
+		<% end %>
+	<% end %>
+
+	jQuery(function(){
+		var springy = jQuery('#graph_box').springy({
+			graph: graph,
+			nodeSelected: function(node){
+				console.log('Node selected: ' + JSON.stringify(node.data));
+			}
+		});
+	});
+</script>
+
+<canvas id="graph_box" width="900" height="800" />

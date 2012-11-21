@@ -4,13 +4,13 @@
 	var graph = new Graph();
 
 	<% @names.each do |name| %>
-		var <%= name %> = graph.newNode({ label: '<%= name %>', color: '#ff0000' });
+		var <%= name %> = graph.newNode({ label: '<%= name %>', color: '#000000' });
 	<% end %>
 
 
 	<% @friendships.each do |person, friends| %>
 		<% friends.each do |friend| %>
-			graph.newEdge(<%= person %>, <%= friend %>, {color: '#aaaaff'});
+			graph.newEdge(<%= person %>, <%= friend %>, {color: '#ff4477'});
 		<% end %>
 	<% end %>
 
