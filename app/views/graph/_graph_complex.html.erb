@@ -17,9 +17,9 @@
 	jQuery(function(){
 		var springy = jQuery('#graph_box').springy({
 			graph: graph,
-			nodeSelected: function(node){
-				console.log('Node selected: ' + JSON.stringify(node.data));
-			}
+			stiffness: 200.0,
+			repulsion: 400.0,
+			damping: 0.5
 		});
 	});
 </script>
