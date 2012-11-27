@@ -1,26 +1,26 @@
 <script src="/assets/springy.js"></script>
 <script src="/assets/springyui.js"></script>
 <script type="text/javascript">
-	var graph = new Graph();
+  var graph = new Graph();
 
-	<% @names.each do |name| %>
-		var <%= name %> = graph.newNode({ label: '<%= name %>', color: '#000000'});
-	<% end %>
+  <% @names.each do |name| %>
+    var <%= name %> = graph.newNode({ label: '<%= name %>', color: '#000000'});
+  <% end %>
 
-	<% @friendships.each do |person, friends| %>
-		<% friends.each do |friend| %>
-			graph.newEdge(<%= person %>, <%= friend %>, {color: '#ff4477', weight: 0.6});
-		<% end %>
-	<% end %>
+  <% @friendships.each do |person, friends| %>
+    <% friends.each do |friend| %>
+      graph.newEdge(<%= person %>, <%= friend %>, {color: '#ff4477', weight: 0.6});
+    <% end %>
+  <% end %>
 
-	jQuery(function(){
-		var springy = jQuery('#graph_box').springy({
-			graph: graph,
-			stiffness: 200.0,
-			repulsion: 400.0,
-			damping: 0.5
-		});
-	});
+  jQuery(function(){
+    var springy = jQuery('#graph_box').springy({
+      graph: graph,
+      stiffness: 200.0,
+      repulsion: 400.0,
+      damping: 0.5
+    });
+  });
 </script>
 
 <canvas id="graph_box" width="900" height="800" />

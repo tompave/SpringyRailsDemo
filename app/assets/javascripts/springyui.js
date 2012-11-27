@@ -240,8 +240,12 @@ jQuery.fn.springy = function(params) {
 			var boxWidth = node.getWidth();
 			var boxHeight = node.getHeight();
 
+			var tp_color = typeof(node.data.color) !== 'undefined' ? node.data.color : '#000000';
+			var tp_scale = typeof(node.data.scale) !== 'undefined' ? node.data.scale : 1;
+
 			// clear background
 			ctx.clearRect(s.x - boxWidth/2, s.y - 10, boxWidth, 20);
+			
 
 			// fill background
 			if (selected !== null && nearest.node !== null && selected.node.id === node.id) {
@@ -252,12 +256,12 @@ jQuery.fn.springy = function(params) {
 				ctx.fillStyle = "rgba(255, 255, 255, 0.0)";
 			}
 			ctx.fillRect(s.x - boxWidth/2, s.y - 10, boxWidth, 20);
+			
 
-			var tp_color = typeof(node.data.color) !== 'undefined' ? node.data.color : '#000000';
 
 			ctx.textAlign = "left";
 			ctx.textBaseline = "top";
-			ctx.font = "16px Verdana, sans-serif";
+			//ctx.font = "16px Verdana, sans-serif";
 			ctx.fillStyle = tp_color; //"#000000";
 			ctx.font = "16px Verdana, sans-serif";
 			var text = typeof(node.data.label) !== 'undefined' ? node.data.label : node.id;

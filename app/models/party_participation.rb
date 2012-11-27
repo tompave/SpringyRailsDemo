@@ -15,18 +15,18 @@ class PartyParticipation < ActiveRecord::Base
 
 
   belongs_to :attendee, class_name: "Person",
-  										 foreign_key: "attendee_id",
-  									 counter_cache: "participations_count"
+                       foreign_key: "attendee_id",
+                     counter_cache: "participations_count"
 
 
   belongs_to :attended_party, class_name: "Party",
-  													 foreign_key: "attended_party_id",
-  												 counter_cache: "participations_count"
+                             foreign_key: "attended_party_id",
+                           counter_cache: "participations_count"
 
 
 
   def accept!
-  	self.update_attributes(confirmed: true)
+    self.update_attributes(confirmed: true)
   end
 
   

@@ -1,11 +1,11 @@
 <div class="graph_container">
-	<%= link_to "random has_and_belongs_to_many", random_simple_path, method: :post, class: "random_simple" %>
-	<%= link_to "random has_many:through", random_complex_path, method: :post, class: "random_complex" %>
+  <%= link_to "random has_and_belongs_to_many", random_simple_path, method: :post, class: "random_simple" %>
+  <%= link_to "random has_many:through", random_complex_path, method: :post, class: "random_complex" %>
 
-	<% if @type == "simple" %>
-		<%= render 'graph_simple' %>
-	<% elsif @type == "complex" %>
-		<%= render 'graph_complex' %>
-	<% end %>
-	
+  <% if @type == "simple" %>
+    <%= render 'graph_simple' %>
+  <% elsif @type == "complex" %>
+    <%= render 'graph_complex' %>
+  <% end %>
+  
 </div>
