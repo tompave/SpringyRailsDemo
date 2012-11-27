@@ -34,7 +34,6 @@ class GraphController < ApplicationController
   # using a has_many :through association
   # POST /random_complex - random_complex_path
   def random_complex
-    prepare_people
     prepare_parties
     redirect_to action: "home", graph: "complex"
   end
@@ -64,12 +63,9 @@ class GraphController < ApplicationController
 
 
     def prepare_parties(n = 7, m = 3)
+      prepare_people(n,m)
       Party.destroy_all
       PartyParticipation.destroy_all
-
-      n.times do |i|
-        p = Person.create
-      end
       
       prng = Random.new()
       people = Person.all
