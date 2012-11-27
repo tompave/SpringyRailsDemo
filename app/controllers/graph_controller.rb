@@ -25,53 +25,74 @@ class GraphController < ApplicationController
   
   # using a has_and_belongs_to_many association
   # POST /random_simple - random_simple_path
-  def random_simple(n = 10, m = 3)
-    Person.destroy_all
-
-    n.times do |i|
-      Person.create
-    end
-    
-    prng = Random.new()
-    people = Person.all
-    r = 0..n-1
-    (n*m).times do |i|
-      people[prng.rand(r)].befriend(people[prng.rand(r)])
-    end
-
+  def random_simple
+    prepare_people
     redirect_to :root
   end
 
 
   # using a has_many :through association
   # POST /random_complex - random_complex_path
-  def random_complex(n = 7, m = 3)
-    Person.destroy_all
-    Party.destroy_all
-    PartyParticipation.destroy_all
-
-    n.times do |i|
-      p = Person.create
-    end
-    
-    prng = Random.new()
-    people = Person.all
-    people_r = 0..n-1
-
-    (n*m).times do |i|
-      people[prng.rand(people_r)].own_parties.create
-    end
-
-    parties = Party.all
-    parties_r = 0..(n*m -1)
-    bools = [true, false]
-
-    (n*m*2).times do |i|
-      parties[prng.rand(parties_r)].attend!(people[prng.rand(people_r)], bools.sample)
-    end
-
+  def random_complex
+    prepare_people
+    prepare_parties
     redirect_to action: "home", graph: "complex"
   end
 
+
+
+
+
+
+  private
+
+    def prepare_people(n = 10, m = 3)
+      Person.destroy_all
+
+      n.times do |i|
+        Person.create
+      end
+      
+      prng = Random.new()
+      people = Person.all
+      r = 0..n-1
+      (n*m).times do |i|
+        people[prng.rand(r)].befriend(people[prng.rand(r)])
+      end
+    end
+
+
+
+    def prepare_parties(n = 7, m = 3)
+      Party.destroy_all
+      PartyParticipation.destroy_all
+
+      n.times do |i|
+        p = Person.create
+      end
+      
+      prng = Random.new()
+      people = Person.all
+      people_r = 0..n-1
+
+      (n*m).times do |i|
+        people[prng.rand(people_r)].own_parties.create
+      end
+
+      parties = Party.all
+      parties_r = 0..(n*m -1)
+      bools = [true, false]
+
+      (n*m*2).times do |i|
+        parties[prng.rand(parties_r)].attend!(people[prng.rand(people_r)], bools.sample)
+      end
+    end
   
 end
+
+
+
+
+
+
+
