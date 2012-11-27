@@ -8,8 +8,8 @@ This demo is meant as an example of how to transform your models and your associ
 The random names are provided by the [Faker Gem](http://faker.rubyforge.org/) by Benjamin Curtis.
 
 ##Partials
-Partials for the **has\_and\_belongs\_to\_many** and the **has_many :through** associations are kept separate although quite similar to make it easier to identify the pattern.  
-If one desires, it would be easy to use just one partial with a couple of conditional statements.  
+Partials for the **has\_and\_belongs\_to\_many** and the **has_many :through** associations are kept separate to make it easier to see how they work.  
+They are quite similar though, and it would be easy to use just one partial with a couple of conditional statements.  
 
 ##Demo
-You can see it in action [here](https://github.com/tompave/SpringyRailsDemo). It's on the Heroku free plan, so be patient if it takes a few seconds to wake up.
+You can see it in action [here](http://springyrailsdemo.herokuapp.com/). It's on the Heroku free plan, so be patient if it takes a few seconds to wake up.

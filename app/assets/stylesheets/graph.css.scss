@@ -7,6 +7,10 @@
 	border-radius: 12px;
 	background-color: #fdfdfd;
 }
+
+body {
+	font-family: helvetica, arial, sans-serif;
+}
 div.debug_box {
 	@include border_box;
 	width: 80%;
@@ -27,7 +31,7 @@ div.graph_container {
 }
 
 a {
-	font-family: helvetica, arial, sans-serif;
+	// font-family: helvetica, arial, sans-serif;
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;
@@ -43,6 +47,14 @@ a {
 		left: 60px;
 		top: 35px;
 	}
+}
+
+p {
+	width: 20%;
+	margin: 20px auto;
+	@include border_box;
+	text-align: center;
+	padding: 5px;
 }
 
 
