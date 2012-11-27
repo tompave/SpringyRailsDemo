@@ -8,8 +8,6 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
-#Per far funzionare Foreman
-#$stdout.sync = true
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -69,5 +67,10 @@ module SpringyTest
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # To prevent the precompile rake task to fail during slug compilation.
+    # the problem started with Rails 3.2.9
+    # https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar#troubleshooting
+    config.assets.initialize_on_precompile = false
   end
 end
