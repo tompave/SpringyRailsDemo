@@ -47,7 +47,6 @@ class Party < ActiveRecord::Base
 
 
 
-
   private
 
     def fill_fields
